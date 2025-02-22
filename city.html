@@ -41,5 +41,31 @@ function checkCity (){
 }
 </script>
 
+<div class="container">
+    <img src="axolotl.jpg" id="image" width="150" height="150" onclick="updatePic()">
+</div>
+
+<script>
+    let usePic = 1
+
+    function updatePic(){
+        switch(usePic) {
+            case 1:
+                usePic = 2
+                document.getElementById("image").src = "newt.jpg"
+                break
+
+            case 2:
+                usePic = 3
+                document.getElementById("image").src = "otterhound.jpg"
+                break
+
+            case 3:
+                usePic = 1
+                document.getElementById("image").src = "axolotl.jpg"
+                break
+        }
+    }
+</script>
 </body>
 </html> 
