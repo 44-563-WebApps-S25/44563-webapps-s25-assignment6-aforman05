@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculating cost for sending message based on letters</title>
+</head>
+ 
+<body>
+
+<h2>Andrea message cost</h2>
+
+<form>
+    <label for="basicprice">Enter cost per letter </label>
+    <input type ="number" id="basicprice" name="basicprice" value=.50> <br>
+
+    <label for="break">Enter the length needed for discount </label>
+    <input type ="number" id="break" name="break" value="9"> <br>
+
+    <label for="discount">Enter the discount percent </label>
+    <input type ="number" id="discount" name="discount" value="10"> <br>
+
+    <input type="button" onclick="amounts()" value="Show total">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function amounts (){
+    console.log("Getting form values")
+    price = document.getElementById("basicprice").value
+    breakAt = document.getElementById("break").value
+    discount = document.getElementById("discount").value
+    myResults = ""
+    out = document.getElementById("result")
+
+    for(let size = Number(breakAt)-3; size < Number(breakAt)+4; size++) {
+        console.log("Current size: ", size);
+        let totalCost;
+        
+        if(size<breakAt) {
+            totalCost = size * price;
+        }
+        else {
+            totalCost = size * price * (1-discount/100);
+        }
+
+        myResults += `size ${size} costs ${totalCost.toFixed(1)}; `;
+    }
+
+    out.innerHTML = "Totals are: "+myResults
+}
+</script>
+
+</body>
+</html> 
