@@ -52,5 +52,45 @@ function amounts (){
 }
 </script>
 
+<form>
+    <input type="radio" onclick="chooseOp()" id="product" name="math" value="times">
+    <label for="product">product</label><br>
+  
+    <input type="radio" onclick="chooseOp()" id="sum" name="math" 
+       value="add">
+    <label for="sum">sum</label><br>
+  
+    <input type="radio" onclick="chooseOp()" id="mod" name="math"   
+       value="mod">
+    <label for="mod">mod</label><br>
+
+  </form>
+
+  <p id="radioResult">This text will be replaced </p>
+
+  <script>
+    function chooseOp() {
+        let price = Number(document.getElementById("basicprice").value)
+        let breakAt = Number(document.getElementById("break").value)
+        let out = document.getElementById("radioResult")
+        let product = document.getElementById("product").checked
+        let sum = document.getElementById("sum").checked
+        let mod = document.getElementById("mod").checked
+        let total = 0
+
+        if (product == true) {
+            total = price * breakAt;
+            out.innerHTML = price+" * "+breakAt+" is "+total;
+        }
+        else if (sum == true) {
+            total = price + breakAt;
+            out.innerHTML = price+" + "+breakAt+" is "+total;
+        }
+        else if (mod == true) {
+            total = price % breakAt;
+            out.innerHTML = price+" % "+breakAt+" is "+total;
+        }
+    }
+  </script>
 </body>
 </html> 
