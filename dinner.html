@@ -24,6 +24,18 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <label for="main">Enter main dish </label>
+    <input type ="text" id="main" name="main" value="Butter Chicken"> <br>
+
+    <label for="dessert">Enter dessert </label>
+    <input type ="text" id="dessert" name="dessert"> <br>
+
+    <input type="button" onclick="updateDinner()" value="Update the dinner">
+</form>
+
+<p id="result2">This text will be replaced </p>
+
 <script> 
 
 let my_dinner = {}
@@ -56,6 +68,18 @@ function choices (){
 
     out.innerHTML = JSON.stringify(my_dinner)
 }
+
+function updateDinner() {
+    main = document.getElementById("main").value
+    dessert = document.getElementById("dessert").value
+    out = document.getElementById("result2")
+
+    my_dinner["main"] = main
+    my_dinner["dessert"] = dessert
+
+    out.innerHTML = JSON.stringify(my_dinner)
+}
+
 </script>
 
 </body>
